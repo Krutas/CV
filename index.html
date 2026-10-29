@@ -7,7 +7,7 @@ body { margin: 0; } img { max-width: 100%; } [hidden] { display: none !important
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Matas Skirkevičius CV</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Matas Skirkevičius, CNC programmer and mechanical engineer in Kaunas, Lithuania. Precision repair parts for the Boeing 737-800NG.">
+<meta name="description" content="Matas Skirkevičius, CNC programmer and mechanical engineer in Kaunas, Lithuania, with experience making precision repair parts for the Boeing 737-800NG.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -713,6 +713,11 @@ a.social:hover { background: var(--dykem); border-color: var(--dykem); color: va
 a.social:hover { background: var(--c); border-color: var(--c); color: var(--sheet); }
 a.social:hover svg { color: var(--sheet); }
 .social.static { --c: var(--violet); }
+
+/* quiet social line */
+.elsewhere { margin-top: 24px; color: var(--ink-2); font-size: .95rem; }
+.elsewhere a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; transition: color .2s, text-decoration-color .2s; }
+.elsewhere a:hover { color: var(--acc); text-decoration-color: var(--acc); }
 </style>
 
 <header class="bar" id="bar">
@@ -734,23 +739,16 @@ a.social:hover svg { color: var(--sheet); }
   <section class="hero wrap" id="top">
     <div class="hero-grid">
       <div class="intro">
-        <span class="avail"><span class="dot"></span>Open to aerospace &amp; precision roles</span>
+        <span class="avail"><span class="dot"></span>Open to new roles</span>
         <p class="hello">Labas! Hello.</p>
         <h1><span class="ln"><span>Hi, I&rsquo;m</span></span><span class="ln"><span>Matas.</span></span></h1>
-        <p class="lead">I&rsquo;m a CNC programmer and mechanical engineer from Kaunas, Lithuania. For seven years I&rsquo;ve made precision repair parts for the <b class="hl hl-blue">Boeing 737-800NG</b>: I write the program, run the machine and <b class="hl hl-teal">inspect the part</b>.</p>
-        <p class="lead-2">I taught myself most of it and ended up running the whole machine shop. Now I&rsquo;m also building <b class="hl hl-violet">AI agents and automation</b>. You can find me on TikTok and YouTube as KrutasLTU.</p>
+        <p class="lead">I&rsquo;m a CNC programmer and mechanical engineer from Kaunas, Lithuania, with seven years of machining experience. Nearly five of them went into precision repair parts for the <b class="hl hl-blue">Boeing 737-800NG</b>, where I wrote the programs, ran the machines and <b class="hl hl-teal">inspected the parts</b>.</p>
+        <p class="lead-2">I taught myself most of it and ended up running the whole machine shop. Now I&rsquo;m also building <b class="hl hl-violet">AI agents and automation</b>.</p>
         <div class="ctas">
           <a class="btn primary" href="#experience">See my work
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2v12M3 9l5 5 5-5"/></svg></a>
           <a class="btn" href="#contact">Say hello</a>
           <a class="btn" href="Matas-Skirkevicius-CV.pdf" download>PDF CV</a>
-        </div>
-        <div class="mini-social">
-          <a href="https://www.tiktok.com/@krutasltu" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg></a>
-          <a href="https://www.youtube.com/@KrutasLTU" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></a>
-          <a href="https://www.facebook.com/matassk/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.5 21v-8h3l.5-3.5h-3.5V7.5c0-1 .4-1.7 1.8-1.7H18V2.7A22 22 0 0 0 15.4 2.5C12.8 2.5 11 4 11 6.9v2.6H8V13h3v8"/></svg></a>
-          <a href="https://wa.me/37065398316" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1-.5-2.3-1.8-2.8-2.8l.9-1-1-2z"/></svg></a>
-          <span class="label">@KrutasLTU</span>
         </div>
       </div>
 
@@ -786,7 +784,7 @@ a.social:hover svg { color: var(--sheet); }
       </div>
       <div class="do" style="--c: var(--teal)">
         <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="14" cy="14" r="8"/><path d="M20 20l7 7"/><path d="M10.5 14l2.5 2.5 4.5-5"/></svg>
-        <h3>Inspect</h3><p>Mechanical inspection to EASA and Boeing airworthiness standards.</p>
+        <h3>Inspect</h3><p>Mechanical inspection and quality control, with past work to EASA and Boeing airworthiness standards.</p>
       </div>
       <div class="do" style="--c: var(--violet)">
         <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="7" r="3.5"/><circle cx="6" cy="24" r="3.5"/><circle cx="26" cy="24" r="3.5"/><path d="M14.3 10l-6.6 10.8M17.7 10l6.6 10.8M9.5 24h13"/></svg>
@@ -811,11 +809,11 @@ a.social:hover svg { color: var(--sheet); }
     </div>
     <div class="profile-grid">
       <div class="prose rv">
-        <p class="big">Machinist and mechanical engineer specialising in precision repair parts for Boeing 737-800NG aircraft.</p>
-        <p>Self-taught, with a record of leading a machine shop and automating manufacturing work. I write the program, run the machine and inspect the part against EASA airworthiness standards, so I know where a tolerance gets lost and how to keep it.</p>
+        <p class="big">Machinist and mechanical engineer with a background in precision repair parts for Boeing 737-800NG aircraft.</p>
+        <p>Self-taught, with a record of leading a machine shop and automating manufacturing work. I&rsquo;ve written the programs, run the machines and inspected parts against EASA airworthiness standards, so I know where a tolerance gets lost and how to keep it.</p>
         <div class="goal">
           <span class="label">Long-term goal</span>
-          <p>Push manufacturing quality forward and contribute to aerospace work, while keeping aviation maintenance to the highest standard of safety. I want to see humanity reach Mars, and to help build the machines that get it there.</p>
+          <p>Push manufacturing quality forward and contribute to aerospace innovation. I want to see humanity reach Mars, and to help build the machines that get it there.</p>
         </div>
       </div>
       <div class="rv">
@@ -838,9 +836,9 @@ a.social:hover svg { color: var(--sheet); }
       </div>
     </div>
     <div class="ways rv">
-      <div class="way"><h3>EASA compliance</h3><p>Every inspection held to aviation safety and airworthiness standards.</p></div>
+      <div class="way"><h3>EASA compliance</h3><p>Years of inspections held to aviation safety and airworthiness standards.</p></div>
       <div class="way"><h3>Self-taught</h3><p>From first lines of CNC code to leading the full machine shop.</p></div>
-      <div class="way"><h3>Precision at scale</h3><p>737-800NG repair parts with no room for an out-of-tolerance feature.</p></div>
+      <div class="way"><h3>Precision at scale</h3><p>Made 737-800NG repair parts with no room for an out-of-tolerance feature.</p></div>
       <div class="way"><h3>Aiming for Mars</h3><p>Good manufacturing is what life on another planet will be built on.</p></div>
     </div>
   </section>
@@ -1062,7 +1060,7 @@ a.social:hover svg { color: var(--sheet); }
           <div class="lang-top"><strong>English</strong><span class="label">Professional working</span></div>
           <div class="rule"><i style="--v:85%"></i></div>
         </div>
-        <p class="note">Comfortable working with international engineering teams on aviation and manufacturing projects.</p>
+        <p class="note">Comfortable working with international engineering teams, as on past aviation and manufacturing projects.</p>
       </div>
       <div class="rv">
         <ul class="interests">
@@ -1070,7 +1068,7 @@ a.social:hover svg { color: var(--sheet); }
           <li>Prediction markets <span class="label">Polymarket</span></li>
           <li>Motorcycles <span class="label">Riding &amp; wrenching</span></li>
           <li>Manufacturing automation <span class="label">Shop floor</span></li>
-          <li>Aerospace technology <span class="label">Day job</span></li>
+          <li>Aerospace technology <span class="label">Following closely</span></li>
           <li>Space exploration <span class="label">Reading list</span></li>
           <li>Mars colonisation <span class="label">The long goal</span></li>
         </ul>
@@ -1088,7 +1086,7 @@ a.social:hover svg { color: var(--sheet); }
       <span class="label">Zone E · replies within 1–2 days</span>
     </div>
     <h2 class="big rv">Have a part that must be <em>right first time?</em></h2>
-    <p class="sub rv">Open to aerospace, precision manufacturing, CNC programming and automation work. Remote or on-site across the EU.</p>
+    <p class="sub rv">Open to CNC programming, precision manufacturing, automation and aerospace work. Remote or on-site across the EU.</p>
     <div class="cards rv">
       <div class="card">
         <span class="label">Email</span>
@@ -1102,26 +1100,16 @@ a.social:hover svg { color: var(--sheet); }
       </div>
       <div class="card">
         <span class="label">Address</span>
-        <span class="val">Baltijos g. 51-13, Kaunas 48299, Lithuania</span>
-        <button class="copy" type="button" id="copy-addr" data-copy="Baltijos g. 51-13, Kaunas 48299, Lithuania">Copy</button>
+        <span class="val">Ašigalio g. 17-2, Kaunas, Lithuania</span>
+        <button class="copy" type="button" id="copy-addr" data-copy="Ašigalio g. 17-2, Kaunas, Lithuania">Copy</button>
       </div>
     </div>
 
-    <div class="rv" style="margin-top: 32px">
-      <span class="label">Follow</span>
-      <div class="socials">
-        <a class="social" href="https://www.tiktok.com/@krutasltu" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg>TikTok · @krutasltu</a>
-        <a class="social" href="https://www.youtube.com/@KrutasLTU" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg>YouTube · @KrutasLTU</a>
-        <a class="social" href="https://wa.me/37065398316" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1-.5-2.3-1.8-2.8-2.8l.9-1-1-2z"/></svg>WhatsApp · KrutasLTU</a>
-        <a class="social" href="https://www.facebook.com/matassk/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.5 21v-8h3l.5-3.5h-3.5V7.5c0-1 .4-1.7 1.8-1.7H18V2.7A22 22 0 0 0 15.4 2.5C12.8 2.5 11 4 11 6.9v2.6H8V13h3v8"/></svg>Facebook · matassk</a>
-        <span class="social static" title="Active on Polymarket">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 20h18"/><path d="M4 16l5-6 4 4 7-9"/></svg>Polymarket</span>
-      </div>
-    </div>
+    <p class="elsewhere rv">Also on
+      <a href="https://www.tiktok.com/@krutasltu" target="_blank" rel="noopener">TikTok</a>,
+      <a href="https://www.youtube.com/@KrutasLTU" target="_blank" rel="noopener">YouTube</a>,
+      <a href="https://www.facebook.com/matassk/" target="_blank" rel="noopener">Facebook</a> and
+      <a href="https://wa.me/37065398316" target="_blank" rel="noopener">WhatsApp</a>.</p>
 
     <div class="titleblock rv" aria-label="Drawing title block">
       <div class="wide name"><span class="label">Drawn by</span><b>M. Skirkevičius</b></div>

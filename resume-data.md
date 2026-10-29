@@ -15,7 +15,7 @@ Merged from:
 ## Contact
 - **Email:** matasskirkevicius@gmail.com
 - **Phone:** +370 653 98316
-- **Address:** Baltijos g. 51-13, Kaunas 48299, Lithuania
+- **Address:** Ašigalio g. 17-2, Kaunas, Lithuania
 - **TikTok:** @krutasltu (https://www.tiktok.com/@krutasltu)
 - **YouTube:** @KrutasLTU (https://www.youtube.com/@KrutasLTU)
 - **WhatsApp:** KrutasLTU (https://wa.me/37065398316, same number as phone)
@@ -23,17 +23,16 @@ Merged from:
 - **Polymarket:** active, but not linked publicly. Keep the wallet address and trading history off the CV.
 
 ## Taglines
-- "Precision-crafting the parts that keep 737s flying — and dreaming of the machines that will build Mars." (B)
 - "Precision is not a skill. It's a discipline." (A)
 - "Built with steel, calibrated for the sky." (B)
 - "Every part I machine today is a dress-rehearsal for the day we mill them on Mars." (B)
 - "Crafted in Kaunas. Tolerances measured in microns, ambitions measured in kilometres to Mars." (B)
 
 ## Professional summary
-Experienced machinist and mechanical engineer with specialized expertise in fabricating precision repair parts for Boeing 737-800NG aircraft. Self-taught professional with proven leadership in machine shop management and manufacturing automation. Passionate about advancing aerospace technology and contributing to humanity's journey to Mars.
+Experienced machinist and mechanical engineer with a background in fabricating precision repair parts for Boeing 737-800NG aircraft (past role, 2019–2024). Self-taught professional with proven leadership in machine shop management and manufacturing automation. Passionate about advancing aerospace technology and contributing to humanity's journey to Mars.
 
 ## Career aspirations
-Dedicated to advancing manufacturing excellence and contributing to aerospace innovation. Committed to witnessing humanity's expansion to Mars while ensuring the highest standards of safety and quality in aviation maintenance.
+Dedicated to advancing manufacturing excellence and contributing to aerospace innovation. Committed to witnessing humanity's expansion to Mars.
 
 ## Key metrics
 | Metric | Value | Source |
@@ -41,15 +40,15 @@ Dedicated to advancing manufacturing excellence and contributing to aerospace in
 | Years of experience | 7+ | A, B |
 | Industries | 3 | B |
 | Specializations | 4 | B |
-| Aircraft | Boeing 737-800NG | A, B |
+| Aircraft experience (past) | Boeing 737-800NG | A, B |
 | Parts fabricated | 1000+ | A |
 | CNC programs written | 100+ | A |
 | Quality inspections | 250+ | A |
 
 ## Core strengths (B)
-1. **EASA Compliance:** strict adherence to aviation safety and airworthiness standards across every inspection.
+1. **EASA Compliance:** years of inspections held to aviation safety and airworthiness standards.
 2. **Self-Taught Mastery:** years of hands-on learning, from CNC code to full machine shop leadership.
-3. **Precision at Scale:** fabrication of Boeing 737-800NG repair parts with zero tolerance for imperfection.
+3. **Precision at Scale:** made Boeing 737-800NG repair parts with zero tolerance for imperfection.
 4. **Aiming for Mars:** driven by the belief that manufacturing excellence is the foundation of interplanetary life.
 
 ## Certifications & knowledge
@@ -151,7 +150,7 @@ Shop equipment: Mill / Turn / EDM
 - **Lithuanian:** Native (100%)
 - **English:** Professional working proficiency (85%)
 
-Fluent collaboration with international engineering teams on aviation and manufacturing projects.
+Comfortable working with international engineering teams, as on past aviation and manufacturing projects.
 
 ## Interests
 - AI & agents

@@ -42,7 +42,7 @@ Dedicated to advancing manufacturing excellence and contributing to aerospace in
 | Industries | 3 | B |
 | Specializations | 4 | B |
 | Aircraft | Boeing 737-800NG | A, B |
-| Parts fabricated | 500+ | A |
+| Parts fabricated | 1000+ | A |
 | CNC programs written | 100+ | A |
 | Quality inspections | 500+ | A |
 

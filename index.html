@@ -1,0 +1,1486 @@
+<!doctype html>
+<html lang="en">
+<style>/* base reset the Artifact host normally provides */
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; } img { max-width: 100%; } [hidden] { display: none !important; }</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Matas Skirkevičius CV</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Matas Skirkevičius, CNC programmer and mechanical engineer in Kaunas, Lithuania. Precision repair parts for the Boeing 737-800NG.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a drafting sheet. Framed page, zone-lettered sections, a live CNC toolpath in the hero, title block in the corner. */
+:root {
+  --paper: #E6EBEA;
+  --sheet: #F6F8F7;
+  --ink: #16212A;
+  --ink-2: #4D5D67;
+  --line: #BCC8CB;
+  --grid: rgba(22, 33, 42, .055);
+  --dykem: #2B3EC2;          /* layout-fluid blue, the accent */
+  --dykem-soft: rgba(43, 62, 194, .11);
+  --metal: #D5DBDE;
+  --metal-edge: #98A6AC;
+  --ok: #1F7A4D;
+
+  --f-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, "Courier New", monospace;
+
+  --step--1: .8125rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.75rem;
+  --step-3: clamp(2.25rem, 4.6vw, 3.5rem);
+  --step-4: clamp(3.6rem, 10vw, 8rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0B1218; --sheet: #111B23; --ink: #DCE4E9; --ink-2: #92A2AC; --line: #2A3946;
+    --grid: rgba(220, 228, 233, .045); --dykem: #8D9CFF; --dykem-soft: rgba(141, 156, 255, .13);
+    --metal: #22303A; --metal-edge: #4B5D69; --ok: #5CC690; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0B1218; --sheet: #111B23; --ink: #DCE4E9; --ink-2: #92A2AC; --line: #2A3946;
+  --grid: rgba(220, 228, 233, .045); --dykem: #8D9CFF; --dykem-soft: rgba(141, 156, 255, .13);
+  --metal: #22303A; --metal-edge: #4B5D69; --ok: #5CC690; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--paper);
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--dykem); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.mono { font-family: var(--f-mono); }
+.label {
+  font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-2);
+}
+
+/* ---------- top bar ---------- */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9;
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; gap: 20px;
+  padding-block: 12px;
+  background: var(--paper);
+}
+.bar::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--line);
+}
+.bar .progress {
+  position: absolute; left: 0; bottom: 0; height: 2px; width: 100%;
+  background: var(--dykem); transform-origin: 0 50%; transform: scaleX(0); z-index: 1;
+}
+.mark {
+  display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none;
+}
+.mark b {
+  display: grid; place-items: center; width: 32px; height: 32px;
+  border: 1.5px solid var(--ink); font-family: var(--f-display); font-weight: 700;
+  font-size: 1rem; letter-spacing: .02em;
+}
+.mark span { font-family: var(--f-display); font-weight: 600; font-size: 1.1rem; letter-spacing: .02em; }
+.nav {
+  margin-left: auto; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; min-width: 0;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  font-family: var(--f-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; color: var(--ink-2); padding: 6px 10px; white-space: nowrap;
+  border: 1px solid transparent; transition: color .2s, border-color .2s;
+}
+.nav a i { font-style: normal; color: var(--dykem); margin-right: 6px; }
+.nav a:hover { color: var(--ink); }
+.nav a.on { color: var(--ink); border-color: var(--line); background: var(--sheet); }
+@media (max-width: 720px) {
+  .mark span { display: none; }
+  .nav a .t { display: none; }
+  .nav a i { margin: 0; }
+}
+
+/* ---------- sheet ---------- */
+.sheet {
+  position: relative; max-width: 1200px; margin: 20px auto 0;
+  background: var(--sheet); border: 1.5px solid var(--ink);
+}
+.sheet::before {
+  content: ""; position: absolute; inset: 7px; border: 1px solid var(--line); pointer-events: none;
+}
+.wrap { padding-inline: clamp(20px, 4.5vw, 56px); }
+section { position: relative; }
+section + section, .stats + section { border-top: 1px solid var(--line); }
+.sec { padding-block: clamp(56px, 8vw, 96px); }
+.sec-head {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: 18px;
+  margin-bottom: clamp(32px, 5vw, 52px);
+}
+.zone {
+  display: grid; place-items: center; width: 44px; height: 44px; border: 1.5px solid var(--ink);
+  font-family: var(--f-display); font-weight: 700; font-size: 1.5rem; line-height: 1;
+  align-self: center;
+}
+.sec-head h2 {
+  font-family: var(--f-display); font-weight: 700; font-size: var(--step-3);
+  line-height: .95; letter-spacing: -.005em; text-transform: uppercase;
+}
+.sec-head .label { text-align: right; padding-bottom: 6px; }
+@media (max-width: 640px) {
+  .sec-head { grid-template-columns: auto 1fr; }
+  .sec-head .label { grid-column: 1 / -1; text-align: left; padding: 0; }
+}
+
+/* ---------- hero ---------- */
+.hero { padding-block: clamp(40px, 6vw, 72px) clamp(40px, 6vw, 64px); }
+.hero-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr);
+  gap: clamp(32px, 5vw, 64px); align-items: start;
+}
+@media (max-width: 940px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
+.avail {
+  display: inline-flex; align-items: center; gap: 10px; padding: 6px 12px 6px 10px;
+  border: 1px solid var(--line); background: var(--paper);
+  font-family: var(--f-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+}
+.avail .dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--ok);
+  box-shadow: 0 0 0 0 var(--ok); animation: ping 2.2s infinite;
+}
+@keyframes ping {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 55%, transparent); }
+  70%, 100% { box-shadow: 0 0 0 7px transparent; }
+}
+.hero h1 {
+  margin-top: 26px;
+  font-family: var(--f-display); font-weight: 700; font-size: var(--step-4);
+  line-height: .84; letter-spacing: -.01em; text-transform: uppercase;
+}
+.hero h1 .ln { display: block; overflow: hidden; padding-bottom: .04em; }
+.hero h1 .ln span { display: inline-block; }
+.hero h1 .ln + .ln { color: var(--dykem); }
+/* "SKIRKEVIČIUS" is ~4.8× its font size wide: size the name to the column it sits in */
+@media (min-width: 941px) { .hero h1 { font-size: clamp(3.6rem, 8.2vw, 6.4rem); } }
+@media (max-width: 940px) { .hero h1 { font-size: clamp(2.6rem, 16vw, 8rem); } }
+.role {
+  margin-top: 22px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center;
+  font-family: var(--f-mono); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase;
+}
+.role .sep { width: 18px; height: 1px; background: var(--ink-2); }
+.lead {
+  margin-top: 22px; max-width: 34em; font-size: 1.125rem; line-height: 1.6; color: var(--ink);
+}
+.ctas { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px;
+  font-family: var(--f-mono); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+  cursor: pointer; transition: background .2s, color .2s, transform .2s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.primary { background: var(--ink); color: var(--sheet); }
+.btn.primary:hover { background: var(--dykem); border-color: var(--dykem); }
+.btn svg { width: 14px; height: 14px; }
+.facts {
+  margin-top: 36px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+.facts div { padding: 14px 14px 0 0; min-width: 0; }
+.facts div + div { padding-left: 14px; border-left: 1px solid var(--line); }
+.facts dd { margin: 4px 0 0; font-weight: 500; font-size: .95rem; }
+.facts dt { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+@media (max-width: 480px) {
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .facts div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 12px; }
+}
+
+/* drawing panel */
+.drawing { margin: 0; border: 1.5px solid var(--ink); background: var(--sheet); min-width: 0; }
+.drawing-head {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 9px 12px; border-bottom: 1px solid var(--line);
+}
+.status {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--f-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--dykem);
+}
+.status::before { content: ""; width: 7px; height: 7px; background: currentColor; }
+.status.done { color: var(--ok); }
+.canvas-box { position: relative; aspect-ratio: 3 / 2; max-width: 100%; }
+.canvas-box canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.drawing-foot {
+  display: grid; grid-template-columns: minmax(0, 190px) minmax(0, 1fr);
+  border-top: 1px solid var(--line);
+}
+.dro { padding: 10px 12px; border-right: 1px solid var(--line); display: grid; gap: 2px; align-content: start; }
+.dro div { display: flex; justify-content: space-between; gap: 10px; font-family: var(--f-mono); font-size: .8rem; font-variant-numeric: tabular-nums; }
+.dro b { font-weight: 500; color: var(--dykem); }
+.dro span { color: var(--ink); }
+.gcode {
+  position: relative; list-style: none; margin: 0; padding: 8px 0; height: 156px; overflow: hidden;
+  font-family: var(--f-mono); font-size: .76rem; line-height: 1.6;
+  mask-image: linear-gradient(transparent, #000 22%, #000 78%, transparent);
+  -webkit-mask-image: linear-gradient(transparent, #000 22%, #000 78%, transparent);
+}
+.gcode li { padding: 0 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink-2); transition: color .15s, background .15s; }
+.gcode li.done { color: var(--ink-2); opacity: .6; }
+.gcode li.on { color: var(--ink); background: var(--dykem-soft); box-shadow: inset 2px 0 0 var(--dykem); }
+.drawing figcaption { padding: 8px 12px; border-top: 1px solid var(--line); }
+@media (max-width: 520px) {
+  .drawing-foot { grid-template-columns: minmax(0, 1fr); }
+  .dro { border-right: 0; border-bottom: 1px solid var(--line); grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 14px; }
+  .gcode { height: 128px; }
+}
+
+/* ---------- stats ---------- */
+.stats { border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stat { padding: 26px clamp(20px, 3vw, 36px); min-width: 0; }
+.stat + .stat { border-left: 1px solid var(--line); }
+.stat .n {
+  font-family: var(--f-display); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1; font-variant-numeric: tabular-nums;
+}
+.stat .n sup { font-size: .5em; color: var(--dykem); vertical-align: .55em; margin-left: 2px; }
+.stat .label { margin-top: 8px; display: block; }
+@media (max-width: 760px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(3) { border-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+
+/* ---------- profile ---------- */
+.profile-grid {
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px);
+}
+@media (max-width: 860px) { .profile-grid { grid-template-columns: minmax(0, 1fr); } }
+.prose { display: grid; gap: 18px; max-width: 38em; }
+.prose .big { font-size: 1.3rem; line-height: 1.5; }
+.goal {
+  margin-top: 10px; padding: 18px 20px; border: 1px dashed var(--metal-edge);
+  display: grid; gap: 8px; background: var(--paper);
+}
+.spec { margin: 0; display: grid; border-top: 1.5px solid var(--ink); }
+.spec div {
+  display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 12px;
+  padding: 11px 0; border-bottom: 1px solid var(--line);
+}
+.spec dt { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); padding-top: 3px; }
+.spec dd { margin: 0; font-weight: 500; }
+.certs { margin-top: 36px; }
+.certs ul { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
+.certs li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; align-items: center; }
+.certs svg { width: 28px; height: 28px; color: var(--dykem); }
+.ways {
+  margin-top: clamp(40px, 6vw, 64px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+.way { padding: 20px 20px 0 0; min-width: 0; }
+.way + .way { padding-left: 20px; border-left: 1px solid var(--line); }
+.way h3 { font-family: var(--f-display); font-weight: 600; font-size: 1.35rem; text-transform: uppercase; letter-spacing: .01em; line-height: 1.1; }
+.way p { margin-top: 8px; color: var(--ink-2); font-size: .95rem; }
+@media (max-width: 860px) {
+  .ways { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .way:nth-child(3) { padding-left: 0; border-left: 0; }
+  .way:nth-child(n+3) { margin-top: 20px; border-top: 1px solid var(--line); }
+}
+@media (max-width: 480px) {
+  .ways { grid-template-columns: minmax(0, 1fr); }
+  .way + .way { padding-left: 0; border-left: 0; margin-top: 20px; border-top: 1px solid var(--line); }
+}
+
+/* ---------- experience ---------- */
+.scale { margin-bottom: clamp(40px, 6vw, 64px); }
+.scale-row { display: flex; gap: 0; }
+.seg {
+  position: relative; text-decoration: none; min-width: 0; display: block;
+}
+.dim {
+  position: relative; height: 26px; margin: 0 1px;
+  font-family: var(--f-mono); font-size: .72rem; color: var(--ink-2);
+  display: flex; justify-content: center; align-items: flex-start;
+}
+.dim::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 18px; height: 1px; background: currentColor;
+  transform-origin: 50% 50%; transition: transform .9s cubic-bezier(.2, .7, .2, 1);
+}
+.dim::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 13px; height: 11px;
+  border-left: 1px solid currentColor; border-right: 1px solid currentColor;
+}
+.dim span { white-space: nowrap; background: var(--sheet); padding: 0 4px; position: relative; z-index: 1; line-height: 1.2; }
+.bar-seg {
+  height: 44px; margin: 0 1px; border: 1.5px solid var(--ink); background: var(--metal);
+  display: flex; align-items: center; padding: 0 10px; overflow: hidden;
+  font-family: var(--f-display); font-weight: 600; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .02em;
+  white-space: nowrap; transition: background .2s, color .2s;
+  background-image: repeating-linear-gradient(135deg, transparent 0 7px, var(--grid) 7px 8px);
+}
+.seg:hover .bar-seg, .seg.hot .bar-seg { background-color: var(--dykem); color: var(--sheet); border-color: var(--dykem); }
+.seg:hover .dim, .seg.hot .dim { color: var(--dykem); }
+.ticks { position: relative; height: 34px; margin-top: 6px; border-top: 1px solid var(--line); }
+.ticks span {
+  position: absolute; top: 0; transform: translateX(-50%);
+  font-family: var(--f-mono); font-size: .68rem; color: var(--ink-2); padding-top: 8px;
+}
+.ticks span::before { content: ""; position: absolute; top: 0; left: 50%; width: 1px; height: 6px; background: var(--ink-2); }
+.ticks span:first-child { transform: none; }
+.ticks span:first-child::before { left: 0; }
+.ticks span:last-child { transform: translateX(-100%); }
+.ticks span:last-child::before { left: auto; right: 0; }
+@media (max-width: 640px) {
+  .ticks .minor { display: none; }
+  .bar-seg { font-size: .85rem; padding: 0 6px; }
+  .bar-seg .long { display: none; }
+}
+
+.jobs { display: grid; }
+.job {
+  display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: clamp(20px, 4vw, 56px);
+  padding-block: 36px; border-top: 1px solid var(--line); transition: background .25s;
+  position: relative;
+}
+.job::before {
+  content: ""; position: absolute; left: calc(-1 * clamp(20px, 4.5vw, 56px)); top: -1px; bottom: 0; width: 3px;
+  background: var(--dykem); transform: scaleY(0); transform-origin: top; transition: transform .35s;
+}
+.job.hot::before, .job:target::before { transform: scaleY(1); }
+.job:first-child { border-top: 1.5px solid var(--ink); }
+@media (max-width: 760px) { .job { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
+.job-meta { display: grid; gap: 6px; align-content: start; }
+.job-meta .when { font-family: var(--f-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+.job-meta .dur { font-family: var(--f-display); font-weight: 700; font-size: 2rem; line-height: 1; }
+.tag {
+  justify-self: start; margin-top: 4px; padding: 3px 8px; border: 1px solid var(--dykem);
+  color: var(--dykem); font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+}
+.job h3 { font-family: var(--f-display); font-weight: 700; font-size: var(--step-2); text-transform: uppercase; line-height: 1.05; letter-spacing: .005em; }
+.job .co { margin-top: 4px; font-weight: 500; color: var(--ink-2); }
+.job .sum { margin-top: 14px; max-width: 40em; }
+.job-lists { margin-top: 22px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; }
+@media (max-width: 960px) { .job-lists { grid-template-columns: minmax(0, 1fr); gap: 20px; } }
+.job-lists ul { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 7px; }
+.job-lists li { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 10px; font-size: .95rem; }
+.job-lists li::before { content: ""; width: 7px; height: 1px; background: var(--ink-2); margin-top: .8em; }
+.job-lists .res li::before { width: 8px; height: 8px; background: none; border: 1.5px solid var(--dykem); transform: rotate(45deg); margin-top: .45em; }
+.chips { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { padding: 3px 9px; background: var(--paper); border: 1px solid var(--line); font-family: var(--f-mono); font-size: .72rem; }
+
+/* ---------- skills ---------- */
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: -18px 0 36px; }
+.skill-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 48px); }
+@media (max-width: 980px) { .skill-groups { grid-template-columns: minmax(0, 1fr); } }
+.group h3 {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+  padding-bottom: 10px; border-bottom: 1.5px solid var(--ink);
+  font-family: var(--f-display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase;
+}
+.group ul { list-style: none; padding: 0; margin: 0; }
+.gauge { padding: 14px 0 12px; border-bottom: 1px solid var(--line); }
+.gauge-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.gauge-top span:first-child { font-weight: 500; font-size: .95rem; }
+.gauge-top .v { font-family: var(--f-mono); font-size: .8rem; font-variant-numeric: tabular-nums; color: var(--dykem); }
+.rule {
+  position: relative; height: 14px; margin-top: 8px;
+  background:
+    linear-gradient(90deg, var(--ink-2) 1px, transparent 1px) 0 100% / 10% 8px repeat-x,
+    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 100% / 2% 4px repeat-x;
+  border-bottom: 1px solid var(--ink-2);
+}
+.rule i {
+  position: absolute; left: 0; top: 0; height: 6px; width: var(--v); background: var(--dykem);
+  transition: width 1.1s cubic-bezier(.2, .7, .2, 1);
+}
+.rule i::after {
+  content: ""; position: absolute; right: -5px; top: 6px; border: 5px solid transparent; border-top-color: var(--dykem);
+}
+
+.digital { margin-top: clamp(40px, 6vw, 64px); }
+.digital h3 {
+  display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 10px;
+  padding-bottom: 10px; border-bottom: 1.5px solid var(--ink);
+  font-family: var(--f-display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase;
+}
+.dig-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.dig { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 14px; padding: 20px 20px 4px 0; min-width: 0; }
+.dig + .dig { padding-left: 20px; border-left: 1px solid var(--line); }
+.dig svg { width: 32px; height: 32px; color: var(--dykem); transition: transform .3s; }
+.dig:hover svg { transform: rotate(-8deg) scale(1.08); }
+.dig strong { font-family: var(--f-display); font-weight: 700; font-size: 1.3rem; text-transform: uppercase; line-height: 1.1; }
+.dig p { margin-top: 6px; font-size: .92rem; color: var(--ink-2); }
+@media (max-width: 980px) {
+  .dig-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dig:nth-child(3) { padding-left: 0; border-left: 0; }
+  .dig:nth-child(n+3) { border-top: 1px solid var(--line); margin-top: 16px; }
+}
+@media (max-width: 520px) {
+  .dig-grid { grid-template-columns: minmax(0, 1fr); }
+  .dig + .dig { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); margin-top: 16px; }
+}
+.socials { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px; }
+.social {
+  display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; text-decoration: none;
+  border: 1.5px solid var(--ink); font-family: var(--f-mono); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  transition: background .2s, color .2s, border-color .2s, transform .2s;
+}
+.social svg { width: 18px; height: 18px; }
+a.social:hover { background: var(--dykem); border-color: var(--dykem); color: var(--sheet); transform: translateY(-2px); }
+.social.static { border-style: dashed; border-color: var(--metal-edge); color: var(--ink-2); cursor: default; }
+
+/* ---------- languages & interests ---------- */
+.li-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(32px, 5vw, 72px); }
+@media (max-width: 860px) { .li-grid { grid-template-columns: minmax(0, 1fr); } }
+.lang { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+.lang:first-of-type { border-top: 1.5px solid var(--ink); }
+.lang-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.lang-top strong { font-family: var(--f-display); font-weight: 700; font-size: 1.8rem; text-transform: uppercase; line-height: 1; }
+.lang .rule { margin-top: 10px; }
+.note { margin-top: 18px; color: var(--ink-2); max-width: 34em; }
+.interests { list-style: none; padding: 0; margin: 0; display: grid; border-top: 1.5px solid var(--ink); }
+.interests li {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px;
+  padding: 14px 0; border-bottom: 1px solid var(--line);
+  font-family: var(--f-display); font-weight: 600; font-size: clamp(1.4rem, 3vw, 2rem); text-transform: uppercase; line-height: 1.1;
+  transition: padding .25s, color .25s;
+}
+.interests li:hover { padding-left: 10px; color: var(--dykem); }
+.interests li .label { font-weight: 400; }
+.quote {
+  margin: 32px 0 0; padding-left: 20px; border-left: 2px solid var(--dykem);
+  font-size: 1.2rem; line-height: 1.5; max-width: 32em;
+}
+.quote footer { margin-top: 8px; }
+
+/* ---------- contact ---------- */
+.contact h2.big {
+  font-family: var(--f-display); font-weight: 700; font-size: clamp(2.6rem, 7vw, 5.5rem);
+  line-height: .9; text-transform: uppercase; max-width: 12ch;
+}
+.contact h2.big em { font-style: normal; color: var(--dykem); }
+.contact .sub { margin-top: 18px; max-width: 34em; font-size: 1.1rem; color: var(--ink-2); }
+.cards { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1.5px solid var(--ink); }
+.card { padding: 18px 20px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.card + .card { border-left: 1px solid var(--line); }
+.card .val { font-weight: 500; font-size: 1.05rem; overflow-wrap: anywhere; }
+.card .val a { text-decoration: none; }
+.card .val a:hover { color: var(--dykem); text-decoration: underline; text-underline-offset: 3px; }
+.copy {
+  justify-self: start; margin-top: 6px; padding: 5px 10px; border: 1px solid var(--line); background: var(--paper);
+  color: var(--ink); font-family: var(--f-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer;
+}
+.copy:hover { border-color: var(--dykem); color: var(--dykem); }
+.copy.ok { border-color: var(--ok); color: var(--ok); }
+@media (max-width: 820px) {
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .card + .card { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+.titleblock {
+  margin-top: clamp(48px, 7vw, 80px); margin-left: auto; max-width: 720px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1.5px solid var(--ink);
+}
+.titleblock div { padding: 8px 10px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); min-width: 0; }
+.titleblock div:nth-child(4n) { border-right: 0; }
+.titleblock div:nth-last-child(-n+4) { border-bottom: 0; }
+.titleblock .wide { grid-column: span 2; }
+.titleblock .label { display: block; font-size: .62rem; }
+.titleblock b { display: block; font-weight: 500; font-size: .9rem; overflow-wrap: anywhere; }
+.titleblock .name b { font-family: var(--f-display); font-weight: 700; font-size: 1.3rem; text-transform: uppercase; line-height: 1.1; }
+@media (max-width: 560px) {
+  .titleblock { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .titleblock div { border-right: 1px solid var(--line) !important; border-bottom: 1px solid var(--line) !important; }
+  .titleblock div:nth-child(2n) { border-right: 0 !important; }
+  .titleblock .wide { grid-column: 1 / -1; border-right: 0 !important; }
+}
+.foot { max-width: 1200px; margin: 18px auto 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+/* ---------- motion ---------- */
+.rv { transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
+.rv.wait { opacity: 0; transform: translateY(18px); }
+.rv.wait .rule i { width: 0; }
+.rv.wait .dim::before { transform: scaleX(0); }
+.boot .hero h1 .ln span { animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+.boot .hero h1 .ln + .ln span { animation-delay: .12s; }
+.boot .hero .role, .boot .hero .lead, .boot .hero .ctas, .boot .hero .facts, .boot .hero .avail {
+  animation: fade .8s ease both;
+}
+.boot .hero .avail { animation-delay: 0s; }
+.boot .hero .role { animation-delay: .3s; }
+.boot .hero .lead { animation-delay: .4s; }
+.boot .hero .ctas { animation-delay: .5s; }
+.boot .hero .facts { animation-delay: .6s; }
+@keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .rv.wait { opacity: 1; transform: none; }
+}
+
+/* ================= colour pass ================= */
+:root {
+  --blue: #2B3EC2; --orange: #D24A0E; --teal: #0B7F70; --violet: #6A3FCF; --yellow: #E9A800; --brass: #9A6500;
+  --orange-soft: rgba(210, 74, 14, .14);
+  --acc: var(--blue);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --blue: #8D9CFF; --orange: #FF8B4D; --teal: #3CC8B3; --violet: #B59BFF; --yellow: #F6C744; --brass: #F2C14E;
+    --orange-soft: rgba(255, 139, 77, .16);
+  }
+}
+:root[data-theme="dark"] {
+  --blue: #8D9CFF; --orange: #FF8B4D; --teal: #3CC8B3; --violet: #B59BFF; --yellow: #F6C744; --brass: #F2C14E;
+  --orange-soft: rgba(255, 139, 77, .16);
+}
+#profile { --acc: var(--blue); }
+#experience { --acc: var(--orange); }
+#skills { --acc: var(--teal); }
+#languages { --acc: var(--violet); }
+#contact { --acc: var(--blue); }
+
+.colorbar { display: flex; height: 6px; border-bottom: 1.5px solid var(--ink); position: relative; z-index: 1; }
+.colorbar i { flex: 1; }
+.colorbar i:nth-child(1) { background: var(--blue); }
+.colorbar i:nth-child(2) { background: var(--orange); }
+.colorbar i:nth-child(3) { background: var(--teal); }
+.colorbar i:nth-child(4) { background: var(--violet); }
+.colorbar i:nth-child(5) { background: var(--yellow); }
+
+.nav a:nth-child(1) i { color: var(--blue); }
+.nav a:nth-child(2) i { color: var(--orange); }
+.nav a:nth-child(3) i { color: var(--teal); }
+.nav a:nth-child(4) i { color: var(--violet); }
+.nav a:nth-child(5) i { color: var(--blue); }
+.bar .progress { background: linear-gradient(90deg, var(--blue), var(--orange) 35%, var(--teal) 65%, var(--violet)); }
+
+/* intro */
+.hello { margin-top: 26px; font-family: var(--f-mono); font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); }
+.hero h1 { margin-top: 10px; }
+.hero h1 .ln + .ln { color: var(--blue); }
+.hero .lead { margin-top: 22px; font-size: 1.2rem; line-height: 1.55; max-width: 32em; }
+.lead-2 { margin-top: 14px; max-width: 34em; color: var(--ink-2); font-size: 1.02rem; }
+.hl { font-weight: 600; background-repeat: no-repeat; background-size: 100% .38em; background-position: 0 88%; }
+.hl-blue { background-image: linear-gradient(color-mix(in srgb, var(--blue) 24%, transparent), color-mix(in srgb, var(--blue) 24%, transparent)); }
+.hl-teal { background-image: linear-gradient(color-mix(in srgb, var(--teal) 26%, transparent), color-mix(in srgb, var(--teal) 26%, transparent)); }
+.hl-violet { background-image: linear-gradient(color-mix(in srgb, var(--violet) 26%, transparent), color-mix(in srgb, var(--violet) 26%, transparent)); }
+.btn.primary { background: var(--blue); border-color: var(--blue); color: var(--sheet); }
+.btn.primary:hover { background: var(--orange); border-color: var(--orange); }
+.btn:not(.primary):hover { border-color: var(--orange); color: var(--orange); }
+.mini-social { margin-top: 24px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.mini-social a { display: grid; place-items: center; width: 38px; height: 38px; border: 1.5px solid var(--line); color: var(--ink); transition: color .2s, border-color .2s, transform .2s; }
+.mini-social a svg { width: 18px; height: 18px; }
+.mini-social a:nth-of-type(1):hover { color: var(--teal); border-color: var(--teal); }
+.mini-social a:nth-of-type(2):hover { color: var(--orange); border-color: var(--orange); }
+.mini-social a:nth-of-type(3):hover { color: var(--blue); border-color: var(--blue); }
+.mini-social a:nth-of-type(4):hover { color: var(--teal); border-color: var(--teal); }
+.mini-social a:hover { transform: translateY(-2px); }
+.mini-social .label { margin-left: 6px; }
+.avail { border-color: color-mix(in srgb, var(--teal) 45%, var(--line)); background: color-mix(in srgb, var(--teal) 9%, var(--sheet)); }
+
+.whatido { margin-top: clamp(36px, 5vw, 56px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.do {
+  position: relative; padding: 20px 18px 18px; min-width: 0;
+  background: color-mix(in srgb, var(--c) 8%, var(--sheet));
+  border: 1.5px solid color-mix(in srgb, var(--c) 40%, var(--line));
+  transition: transform .25s, background .25s;
+}
+.do::before { content: ""; position: absolute; left: -1.5px; right: -1.5px; top: -1.5px; height: 5px; background: var(--c); }
+.do svg { width: 34px; height: 34px; color: var(--c); }
+.do h3 { margin-top: 12px; font-family: var(--f-display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase; line-height: 1; color: var(--c); }
+.do p { margin-top: 8px; font-size: .94rem; color: var(--ink); }
+.do:hover { transform: translateY(-3px); background: color-mix(in srgb, var(--c) 14%, var(--sheet)); }
+@media (max-width: 980px) { .whatido { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .whatido { grid-template-columns: minmax(0, 1fr); } }
+.boot .hero .hello, .boot .hero .lead-2, .boot .hero .mini-social { animation: fade .8s ease both; }
+.boot .hero .hello { animation-delay: .05s; }
+.boot .hero .lead-2 { animation-delay: .45s; }
+.boot .hero .mini-social { animation-delay: .6s; }
+.boot .whatido .do { animation: fade .7s ease both; }
+.boot .whatido .do:nth-child(1) { animation-delay: .7s; }
+.boot .whatido .do:nth-child(2) { animation-delay: .8s; }
+.boot .whatido .do:nth-child(3) { animation-delay: .9s; }
+.boot .whatido .do:nth-child(4) { animation-delay: 1s; }
+
+/* drawing panel */
+.dro div:nth-child(1) b { color: var(--blue); }
+.dro div:nth-child(2) b { color: var(--teal); }
+.dro div:nth-child(3) b { color: var(--orange); }
+.dro div:nth-child(n+4) b { color: var(--violet); }
+.status { color: var(--orange); }
+.gcode li.on { background: var(--orange-soft); box-shadow: inset 2px 0 0 var(--orange); }
+
+/* stats */
+.stat .n { color: var(--c, var(--ink)); }
+.stat .n sup { color: var(--ink-2); }
+.stat:nth-child(1) { --c: var(--blue); }
+.stat:nth-child(2) { --c: var(--orange); }
+.stat:nth-child(3) { --c: var(--teal); }
+.stat:nth-child(4) { --c: var(--violet); }
+.stat { box-shadow: inset 0 4px 0 var(--c); }
+
+/* section accents */
+.zone { background: var(--acc); border-color: var(--acc); color: var(--sheet); }
+.sec-head .label { color: var(--acc); }
+.rule i { background: var(--acc); }
+.rule i::after { border-top-color: var(--acc); }
+.gauge-top .v { color: var(--acc); }
+.tag { border-color: var(--acc); color: var(--acc); background: color-mix(in srgb, var(--acc) 8%, transparent); }
+.job-lists .res li::before { border-color: var(--acc); }
+.job::before { background: var(--acc); }
+.certs svg { color: var(--acc); }
+.quote { border-left-color: var(--acc); }
+.contact h2.big em { color: var(--orange); }
+.copy:hover { border-color: var(--acc); color: var(--acc); }
+.goal { border-color: color-mix(in srgb, var(--blue) 45%, var(--line)); background: color-mix(in srgb, var(--blue) 6%, var(--sheet)); }
+.way:nth-child(1) h3 { color: var(--blue); }
+.way:nth-child(2) h3 { color: var(--orange); }
+.way:nth-child(3) h3 { color: var(--teal); }
+.way:nth-child(4) h3 { color: var(--violet); }
+
+/* timeline + jobs: one colour per employer */
+.seg:nth-child(1), #job-baltic { --c: var(--teal); }
+.seg:nth-child(2), #job-techranga { --c: var(--brass); }
+.seg:nth-child(3), #job-kams { --c: var(--orange); }
+.bar-seg { background-color: color-mix(in srgb, var(--c) 16%, var(--sheet)); border-color: var(--c); color: var(--ink); }
+.seg:hover .bar-seg, .seg.hot .bar-seg { background-color: var(--c); border-color: var(--c); color: var(--sheet); }
+.seg:hover .dim, .seg.hot .dim { color: var(--c); }
+.job { --acc: var(--c); }
+.job .dur { color: var(--c); }
+@media (max-width: 1100px) { .bar-seg .long { display: none; } }
+
+/* skills: one colour per group */
+.group:nth-child(1) { --acc: var(--orange); }
+.group:nth-child(2) { --acc: var(--blue); }
+.group:nth-child(3) { --acc: var(--teal); }
+.group h3, .digital h3 { border-bottom-color: var(--acc); }
+.group h3::before { content: ""; width: 12px; height: 12px; background: var(--acc); margin-right: 10px; display: inline-block; flex: none; }
+.group h3 { justify-content: flex-start; align-items: center; }
+.group h3 .label { margin-left: auto; }
+.digital { --acc: var(--violet); }
+.dig:nth-child(1) { --c: var(--blue); }
+.dig:nth-child(2) { --c: var(--violet); }
+.dig:nth-child(3) { --c: var(--teal); }
+.dig:nth-child(4) { --c: var(--orange); }
+.dig svg { color: var(--c); }
+.dig strong { color: var(--c); }
+
+/* languages & interests */
+.lang:nth-of-type(1) { --acc: var(--yellow); }
+.lang:nth-of-type(2) { --acc: var(--violet); }
+.interests li:nth-child(5n+1):hover { color: var(--blue); }
+.interests li:nth-child(5n+2):hover { color: var(--orange); }
+.interests li:nth-child(5n+3):hover { color: var(--teal); }
+.interests li:nth-child(5n+4):hover { color: var(--violet); }
+.interests li:nth-child(5n):hover { color: var(--brass); }
+.interests li::before { content: ""; width: 0; height: 10px; background: currentColor; display: inline-block; transition: width .25s, margin .25s; }
+.interests li { grid-template-columns: auto minmax(0, 1fr) auto; }
+.interests li:hover::before { width: 10px; margin-right: 10px; }
+.interests li:hover { padding-left: 0; }
+
+/* contact */
+.card:nth-child(1) { box-shadow: inset 0 4px 0 var(--blue); }
+.card:nth-child(2) { box-shadow: inset 0 4px 0 var(--orange); }
+.card:nth-child(3) { box-shadow: inset 0 4px 0 var(--teal); }
+.social:nth-child(1) { --c: var(--teal); }
+.social:nth-child(2) { --c: var(--orange); }
+.social:nth-child(3) { --c: var(--teal); }
+.social:nth-child(4) { --c: var(--blue); }
+.social svg { color: var(--c, currentColor); }
+a.social:hover { background: var(--c); border-color: var(--c); color: var(--sheet); }
+a.social:hover svg { color: var(--sheet); }
+.social.static { --c: var(--violet); }
+</style>
+
+<header class="bar" id="bar">
+  <a class="mark" href="#top" aria-label="Back to top"><b>MS</b><span>Matas Skirkevičius</span></a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#profile"><i>A</i><span class="t">Profile</span></a>
+    <a href="#experience"><i>B</i><span class="t">Experience</span></a>
+    <a href="#skills"><i>C</i><span class="t">Skills</span></a>
+    <a href="#languages"><i>D</i><span class="t">Languages</span></a>
+    <a href="#contact"><i>E</i><span class="t">Contact</span></a>
+  </nav>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main class="sheet">
+  <div class="colorbar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero wrap" id="top">
+    <div class="hero-grid">
+      <div class="intro">
+        <span class="avail"><span class="dot"></span>Open to aerospace &amp; precision roles</span>
+        <p class="hello">Labas! Hello.</p>
+        <h1><span class="ln"><span>Hi, I&rsquo;m</span></span><span class="ln"><span>Matas.</span></span></h1>
+        <p class="lead">I&rsquo;m a CNC programmer and mechanical engineer from Kaunas, Lithuania. For seven years I&rsquo;ve made precision repair parts for the <b class="hl hl-blue">Boeing 737-800NG</b>: I write the program, run the machine and <b class="hl hl-teal">inspect the part</b>.</p>
+        <p class="lead-2">I taught myself most of it and ended up running the whole machine shop. Now I&rsquo;m also building <b class="hl hl-violet">AI agents and automation</b>. You can find me on TikTok and YouTube as KrutasLTU.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#experience">See my work
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2v12M3 9l5 5 5-5"/></svg></a>
+          <a class="btn" href="#contact">Say hello</a>
+          <a class="btn" href="Matas-Skirkevicius-CV.pdf" download>PDF CV</a>
+        </div>
+        <div class="mini-social">
+          <a href="https://www.tiktok.com/@krutasltu" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg></a>
+          <a href="https://www.youtube.com/@KrutasLTU" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></a>
+          <a href="https://www.facebook.com/matassk/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.5 21v-8h3l.5-3.5h-3.5V7.5c0-1 .4-1.7 1.8-1.7H18V2.7A22 22 0 0 0 15.4 2.5C12.8 2.5 11 4 11 6.9v2.6H8V13h3v8"/></svg></a>
+          <a href="https://wa.me/37065398316" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1-.5-2.3-1.8-2.8-2.8l.9-1-1-2z"/></svg></a>
+          <span class="label">@KrutasLTU</span>
+        </div>
+      </div>
+
+      <figure class="drawing" aria-label="Animated CNC toolpath machining a demo bracket">
+        <div class="drawing-head">
+          <span class="label">OP 10 · Bracket, demo part</span>
+          <span class="status" id="status">Running</span>
+        </div>
+        <div class="canvas-box"><canvas id="cnc" aria-hidden="true"></canvas></div>
+        <div class="drawing-foot">
+          <div class="dro" aria-hidden="true">
+            <div><b>X</b><span id="dx">-10.000</span></div>
+            <div><b>Y</b><span id="dy">80.000</span></div>
+            <div><b>Z</b><span id="dz">25.000</span></div>
+            <div><b>F</b><span id="df">0</span></div>
+            <div><b>S</b><span id="ds">0</span></div>
+            <div><b>T</b><span id="dt">—</span></div>
+          </div>
+          <ol class="gcode" id="gcode" aria-hidden="true"></ol>
+        </div>
+        <figcaption class="label">120 × 70 mm · contour + pocket + 4× Ø6 drill · ISO 2768-m</figcaption>
+      </figure>
+    </div>
+
+    <div class="whatido">
+      <div class="do" style="--c: var(--blue)">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h22v16H5z"/><path d="M9 13l3 3-3 3M15 19h6"/></svg>
+        <h3>Program</h3><p>CNC programs and CAM toolpaths in Fusion 360, written to hold tolerance.</p>
+      </div>
+      <div class="do" style="--c: var(--orange)">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 3h6v8h-6z"/><path d="M14 11v7l2 4 2-4v-7"/><path d="M5 26h22M8 26v3M24 26v3"/></svg>
+        <h3>Machine</h3><p>Milling, turning and EDM, from one-off repair parts to production runs.</p>
+      </div>
+      <div class="do" style="--c: var(--teal)">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="14" cy="14" r="8"/><path d="M20 20l7 7"/><path d="M10.5 14l2.5 2.5 4.5-5"/></svg>
+        <h3>Inspect</h3><p>Mechanical inspection to EASA and Boeing airworthiness standards.</p>
+      </div>
+      <div class="do" style="--c: var(--violet)">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="7" r="3.5"/><circle cx="6" cy="24" r="3.5"/><circle cx="26" cy="24" r="3.5"/><path d="M14.3 10l-6.6 10.8M17.7 10l6.6 10.8M9.5 24h13"/></svg>
+        <h3>Automate</h3><p>AI tools and agents that take repetitive work off the shop floor and the desk.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="n"><span data-count="7">7</span><sup>+</sup></div><span class="label">Years on the shop floor</span></div>
+    <div class="stat"><div class="n"><span data-count="500">500</span><sup>+</sup></div><span class="label">Parts fabricated</span></div>
+    <div class="stat"><div class="n"><span data-count="100">100</span><sup>+</sup></div><span class="label">CNC programs written</span></div>
+    <div class="stat"><div class="n"><span data-count="500">500</span><sup>+</sup></div><span class="label">Quality inspections</span></div>
+  </div>
+
+  <!-- ===== A · PROFILE ===== -->
+  <section class="sec wrap" id="profile">
+    <div class="sec-head rv">
+      <span class="zone">A</span>
+      <h2>Profile</h2>
+      <span class="label">Zone A · Lithuanian · b. 1990</span>
+    </div>
+    <div class="profile-grid">
+      <div class="prose rv">
+        <p class="big">Machinist and mechanical engineer specialising in precision repair parts for Boeing 737-800NG aircraft.</p>
+        <p>Self-taught, with a record of leading a machine shop and automating manufacturing work. I write the program, run the machine and inspect the part against EASA airworthiness standards, so I know where a tolerance gets lost and how to keep it.</p>
+        <div class="goal">
+          <span class="label">Long-term goal</span>
+          <p>Push manufacturing quality forward and contribute to aerospace work, while keeping aviation maintenance to the highest standard of safety. I want to see humanity reach Mars, and to help build the machines that get it there.</p>
+        </div>
+      </div>
+      <div class="rv">
+        <dl class="spec">
+          <div><dt>Nationality</dt><dd>Lithuanian</dd></div>
+          <div><dt>Born</dt><dd>8 February 1990</dd></div>
+          <div><dt>Driving licence</dt><dd>Class A + B</dd></div>
+          <div><dt>Based in</dt><dd>Kaunas, Lithuania</dd></div>
+          <div><dt>Works</dt><dd>Remote or on-site, across the EU</dd></div>
+        </dl>
+        <div class="certs">
+          <span class="label">Certifications &amp; knowledge</span>
+          <ul>
+            <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="14" cy="14" r="12"/><circle cx="14" cy="14" r="9" stroke-dasharray="2 2"/><path d="M9.5 14.2l3 3 6-6.4"/></svg><span>Boeing 737-800NG repair parts fabrication</span></li>
+            <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="14" cy="14" r="12"/><circle cx="14" cy="14" r="9" stroke-dasharray="2 2"/><path d="M9.5 14.2l3 3 6-6.4"/></svg><span>EASA regulations compliance</span></li>
+            <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="14" cy="14" r="12"/><circle cx="14" cy="14" r="9" stroke-dasharray="2 2"/><path d="M9.5 14.2l3 3 6-6.4"/></svg><span>Airworthiness quality standards</span></li>
+            <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="14" cy="14" r="12"/><circle cx="14" cy="14" r="9" stroke-dasharray="2 2"/><path d="M9.5 14.2l3 3 6-6.4"/></svg><span>Boeing maintenance procedures</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ways rv">
+      <div class="way"><h3>EASA compliance</h3><p>Every inspection held to aviation safety and airworthiness standards.</p></div>
+      <div class="way"><h3>Self-taught</h3><p>From first lines of CNC code to leading the full machine shop.</p></div>
+      <div class="way"><h3>Precision at scale</h3><p>737-800NG repair parts with no room for an out-of-tolerance feature.</p></div>
+      <div class="way"><h3>Aiming for Mars</h3><p>Good manufacturing is what life on another planet will be built on.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== B · EXPERIENCE ===== -->
+  <section class="sec wrap" id="experience">
+    <div class="sec-head rv">
+      <span class="zone">B</span>
+      <h2>Experience</h2>
+      <span class="label">Zone B · Mar 2017 – Jan 2024 · drawn to scale</span>
+    </div>
+
+    <div class="scale rv" aria-label="Career timeline drawn to scale, 82 months">
+      <div class="scale-row">
+        <a class="seg" href="#job-baltic" data-job="job-baltic" style="flex: 18 1 0">
+          <div class="dim"><span>18 mo</span></div>
+          <div class="bar-seg">Baltic<span class="long">&nbsp;Home</span></div>
+        </a>
+        <a class="seg" href="#job-techranga" data-job="job-techranga" style="flex: 8 1 0">
+          <div class="dim"><span>8 mo</span></div>
+          <div class="bar-seg">T<span class="long">echranga</span></div>
+        </a>
+        <a class="seg" href="#job-kams" data-job="job-kams" style="flex: 56 1 0">
+          <div class="dim"><span>4 y 8 mo</span></div>
+          <div class="bar-seg">Kaunas Aircraft<span class="long">&nbsp;Maintenance Services</span></div>
+        </a>
+      </div>
+      <div class="ticks">
+        <span style="left:0">Mar 2017</span>
+        <span class="minor" style="left:12.2%">2018</span>
+        <span class="minor" style="left:26.83%">2019</span>
+        <span style="left:41.46%">2020</span>
+        <span class="minor" style="left:56.1%">2021</span>
+        <span class="minor" style="left:70.73%">2022</span>
+        <span class="minor" style="left:85.37%">2023</span>
+        <span style="left:100%">Jan 2024</span>
+      </div>
+    </div>
+
+    <div class="jobs">
+      <article class="job rv" id="job-kams">
+        <div class="job-meta">
+          <span class="when">May 2019 – Jan 2024</span>
+          <span class="dur">4 y 8 mo</span>
+          <span class="label">Karmėlava, Lithuania</span>
+          <span class="tag">Aerospace</span>
+        </div>
+        <div>
+          <h3>Lead Mechanical Inspector</h3>
+          <p class="co">UAB „Kaunas Aircraft Maintenance Services“</p>
+          <p class="sum">Mechanical inspection of aircraft components and systems, with strict compliance to safety rules, EASA regulations and airworthiness quality standards.</p>
+          <div class="job-lists">
+            <div>
+              <span class="label">Responsibilities</span>
+              <ul>
+                <li>Inspected aircraft components and systems end to end</li>
+                <li>Kept work compliant with safety, EASA and airworthiness standards</li>
+                <li>Worked with engineering teams to resolve issues per Boeing procedures</li>
+                <li>Ran the complete machine shop: operations and staff</li>
+              </ul>
+            </div>
+            <div class="res">
+              <span class="label">Results</span>
+              <ul>
+                <li>Mastered fabrication of Boeing 737-800NG repair parts</li>
+                <li>Promoted to Workshop Lead Mechanical Inspector after 2 years</li>
+                <li>Managed complete machine shop operations</li>
+              </ul>
+            </div>
+          </div>
+          <div class="chips"><span>Boeing 737</span><span>EASA</span><span>Inspection</span><span>Leadership</span></div>
+        </div>
+      </article>
+
+      <article class="job rv" id="job-techranga">
+        <div class="job-meta">
+          <span class="when">Sep 2018 – May 2019</span>
+          <span class="dur">8 mo</span>
+          <span class="label">Lithuania</span>
+          <span class="tag">Manufacturing</span>
+        </div>
+        <div>
+          <h3>Production Operator-Technologist</h3>
+          <p class="co">UAB „Techranga“</p>
+          <p class="sum">Ran and maintained advanced CNC production equipment, carrying parts from 3D model and CNC program through to finished, assembled work.</p>
+          <div class="job-lists">
+            <div>
+              <span class="label">Responsibilities</span>
+              <ul>
+                <li>Operated and maintained advanced CNC production equipment</li>
+                <li>3D modelling and CNC programming for production</li>
+                <li>Designed and made parts on milling, turning and EDM machines</li>
+                <li>Managed technical drawings and on-site assembly</li>
+                <li>Troubleshot and fixed production issues</li>
+              </ul>
+            </div>
+            <div class="res">
+              <span class="label">Results</span>
+              <ul>
+                <li>Designed and made complex parts across several CNC technologies</li>
+                <li>Handled technical drawings and project assembly independently</li>
+              </ul>
+            </div>
+          </div>
+          <div class="chips"><span>Milling</span><span>Turning</span><span>EDM</span><span>3D modelling</span></div>
+        </div>
+      </article>
+
+      <article class="job rv" id="job-baltic">
+        <div class="job-meta">
+          <span class="when">Mar 2017 – Sep 2018</span>
+          <span class="dur">18 mo</span>
+          <span class="label">Lithuania</span>
+          <span class="tag">CNC</span>
+        </div>
+        <div>
+          <h3>CNC Operator-Programmer</h3>
+          <p class="co">UAB „Baltic Home“</p>
+          <p class="sum">Programmed and ran CNC machines across a wide range of parts, keeping accuracy and quality high.</p>
+          <div class="job-lists">
+            <div>
+              <span class="label">Responsibilities</span>
+              <ul>
+                <li>Operated and programmed CNC machines for varied parts</li>
+                <li>Checked the accuracy and quality of every part produced</li>
+                <li>Worked with engineers and designers to improve machining processes</li>
+              </ul>
+            </div>
+            <div class="res">
+              <span class="label">Results</span>
+              <ul>
+                <li>Held high accuracy and quality standards</li>
+                <li>Contributed to process improvement work</li>
+              </ul>
+            </div>
+          </div>
+          <div class="chips"><span>CNC programming</span><span>Quality</span><span>Process improvement</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== C · SKILLS ===== -->
+  <section class="sec wrap" id="skills">
+    <div class="sec-head rv">
+      <span class="zone">C</span>
+      <h2>Skills</h2>
+      <span class="label">Zone C · self-assessed, 0–100</span>
+    </div>
+    <div class="skill-groups">
+      <div class="group rv">
+        <h3>Manufacturing <span class="label">5</span></h3>
+        <ul>
+          <li class="gauge"><div class="gauge-top"><span>CNC programming</span><span class="v">95</span></div><div class="rule"><i style="--v:95%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>CNC operation</span><span class="v">95</span></div><div class="rule"><i style="--v:95%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>Quality control &amp; inspection</span><span class="v">93</span></div><div class="rule"><i style="--v:93%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>Precision fabrication</span><span class="v">92</span></div><div class="rule"><i style="--v:92%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>Machine shop management</span><span class="v">88</span></div><div class="rule"><i style="--v:88%"></i></div></li>
+        </ul>
+      </div>
+      <div class="group rv">
+        <h3>Software <span class="label">4</span></h3>
+        <ul>
+          <li class="gauge"><div class="gauge-top"><span>CAD / CAM systems</span><span class="v">90</span></div><div class="rule"><i style="--v:90%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>Technical drawing interpretation</span><span class="v">90</span></div><div class="rule"><i style="--v:90%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>Autodesk Fusion 360</span><span class="v">85</span></div><div class="rule"><i style="--v:85%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>3D modelling</span><span class="v">85</span></div><div class="rule"><i style="--v:85%"></i></div></li>
+        </ul>
+      </div>
+      <div class="group rv">
+        <h3>Processes <span class="label">5</span></h3>
+        <ul>
+          <li class="gauge"><div class="gauge-top"><span>Metalworking</span><span class="v">92</span></div><div class="rule"><i style="--v:92%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>Milling</span><span class="v">90</span></div><div class="rule"><i style="--v:90%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>Turning</span><span class="v">90</span></div><div class="rule"><i style="--v:90%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>EDM (electrical discharge machining)</span><span class="v">85</span></div><div class="rule"><i style="--v:85%"></i></div></li>
+          <li class="gauge"><div class="gauge-top"><span>Woodworking</span><span class="v">75</span></div><div class="rule"><i style="--v:75%"></i></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="digital rv">
+      <h3>AI &amp; digital <span class="label">Beyond the machine shop</span></h3>
+      <div class="dig-grid">
+        <div class="dig">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="7" width="18" height="18"/><rect x="12" y="12" width="8" height="8"/><path d="M12 3v4M20 3v4M12 25v4M20 25v4M3 12h4M3 20h4M25 12h4M25 20h4"/></svg>
+          <div><strong>AI</strong><p>Using AI tools day to day for engineering, research and writing.</p></div>
+        </div>
+        <div class="dig">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="7" r="3.5"/><circle cx="6" cy="24" r="3.5"/><circle cx="26" cy="24" r="3.5"/><path d="M14.3 10l-6.6 10.8M17.7 10l6.6 10.8M9.5 24h13"/></svg>
+          <div><strong>AI agents</strong><p>Building and running agents that automate multi-step work, the same idea as automating a machine shop.</p></div>
+        </div>
+        <div class="dig">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 27h24"/><path d="M5 22l7-8 5 5 10-12"/><path d="M21 7h6v6"/></svg>
+          <div><strong>Polymarket</strong><p>Trading on prediction markets with AI automation, pricing probabilities on real-world events.</p></div>
+        </div>
+        <div class="dig">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="7" width="24" height="18" rx="1"/><path d="M14 12.5v7l6-3.5z"/></svg>
+          <div><strong>Content creation</strong><p>Publishing video on TikTok, YouTube and Facebook.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== D · LANGUAGES & INTERESTS ===== -->
+  <section class="sec wrap" id="languages">
+    <div class="sec-head rv">
+      <span class="zone">D</span>
+      <h2>Languages &amp; interests</h2>
+      <span class="label">Zone D · off the clock</span>
+    </div>
+    <div class="li-grid">
+      <div class="rv">
+        <div class="lang">
+          <div class="lang-top"><strong>Lithuanian</strong><span class="label">Native</span></div>
+          <div class="rule"><i style="--v:100%"></i></div>
+        </div>
+        <div class="lang">
+          <div class="lang-top"><strong>English</strong><span class="label">Professional working</span></div>
+          <div class="rule"><i style="--v:85%"></i></div>
+        </div>
+        <p class="note">Comfortable working with international engineering teams on aviation and manufacturing projects.</p>
+      </div>
+      <div class="rv">
+        <ul class="interests">
+          <li>AI &amp; agents <span class="label">Building</span></li>
+          <li>Prediction markets <span class="label">Polymarket</span></li>
+          <li>Motorcycles <span class="label">Riding &amp; wrenching</span></li>
+          <li>Manufacturing automation <span class="label">Shop floor</span></li>
+          <li>Aerospace technology <span class="label">Day job</span></li>
+          <li>Space exploration <span class="label">Reading list</span></li>
+          <li>Mars colonisation <span class="label">The long goal</span></li>
+        </ul>
+        <blockquote class="quote">Every part I machine today is a rehearsal for the day we mill them on Mars.
+          <footer class="label">— Matas</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== E · CONTACT ===== -->
+  <section class="sec wrap contact" id="contact">
+    <div class="sec-head rv">
+      <span class="zone">E</span>
+      <h2>Contact</h2>
+      <span class="label">Zone E · replies within 1–2 days</span>
+    </div>
+    <h2 class="big rv">Have a part that must be <em>right first time?</em></h2>
+    <p class="sub rv">Open to aerospace, precision manufacturing, CNC programming and automation work. Remote or on-site across the EU.</p>
+    <div class="cards rv">
+      <div class="card">
+        <span class="label">Email</span>
+        <span class="val"><a href="mailto:matasskirkevicius@gmail.com">matasskirkevicius@gmail.com</a></span>
+        <button class="copy" type="button" id="copy-email" data-copy="matasskirkevicius@gmail.com">Copy</button>
+      </div>
+      <div class="card">
+        <span class="label">Phone</span>
+        <span class="val"><a href="tel:+37065398316">+370 653 98316</a></span>
+        <button class="copy" type="button" id="copy-phone" data-copy="+370 653 98316">Copy</button>
+      </div>
+      <div class="card">
+        <span class="label">Address</span>
+        <span class="val">Baltijos g. 51-13, Kaunas 48299, Lithuania</span>
+        <button class="copy" type="button" id="copy-addr" data-copy="Baltijos g. 51-13, Kaunas 48299, Lithuania">Copy</button>
+      </div>
+    </div>
+
+    <div class="rv" style="margin-top: 32px">
+      <span class="label">Follow</span>
+      <div class="socials">
+        <a class="social" href="https://www.tiktok.com/@krutasltu" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg>TikTok · @krutasltu</a>
+        <a class="social" href="https://www.youtube.com/@KrutasLTU" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg>YouTube · @KrutasLTU</a>
+        <a class="social" href="https://wa.me/37065398316" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1-.5-2.3-1.8-2.8-2.8l.9-1-1-2z"/></svg>WhatsApp · KrutasLTU</a>
+        <a class="social" href="https://www.facebook.com/matassk/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.5 21v-8h3l.5-3.5h-3.5V7.5c0-1 .4-1.7 1.8-1.7H18V2.7A22 22 0 0 0 15.4 2.5C12.8 2.5 11 4 11 6.9v2.6H8V13h3v8"/></svg>Facebook · matassk</a>
+        <span class="social static" title="Active on Polymarket">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 20h18"/><path d="M4 16l5-6 4 4 7-9"/></svg>Polymarket</span>
+      </div>
+    </div>
+
+    <div class="titleblock rv" aria-label="Drawing title block">
+      <div class="wide name"><span class="label">Drawn by</span><b>M. Skirkevičius</b></div>
+      <div class="wide"><span class="label">Title</span><b>Curriculum vitae · CNC / Mechanical</b></div>
+      <div><span class="label">Dwg no.</span><b class="mono">MS-0208-1990</b></div>
+      <div><span class="label">Base</span><b>Kaunas, LT</b></div>
+      <div><span class="label">Coords</span><b class="mono">54.8985 N 23.9036 E</b></div>
+      <div><span class="label">Gen. tol.</span><b class="mono">ISO 2768-m</b></div>
+      <div><span class="label">Scale</span><b class="mono">1:1</b></div>
+      <div><span class="label">Rev</span><b class="mono">2026</b></div>
+      <div><span class="label">Sheet</span><b class="mono">1 / 1</b></div>
+      <div><span class="label">Status</span><b>Available</b></div>
+    </div>
+  </section>
+</main>
+
+<div class="foot"><span class="label">© 2026 Matas Skirkevičius</span><span class="label">Kaunas · Lithuania</span></div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+  if (!reduce) root.classList.add('boot');
+
+  /* ---------------- CNC toolpath program ---------------- */
+  const D2R = Math.PI / 180;
+  const steps = [];
+  const st = { x: -10, y: 80, z: 25, f: 0, s: 0, t: '—' };
+  const RAPID = 230, FEED = 72;            // display speeds, mm/s
+  const lineP = (x0, y0, x1, y1) => [[x0, y0], [x1, y1]];
+  const arcP = (cx, cy, r, a0, a1) => {
+    const n = 22, p = [];
+    for (let i = 0; i <= n; i++) { const a = (a0 + (a1 - a0) * i / n) * D2R; p.push([cx + r * Math.cos(a), cy + r * Math.sin(a)]); }
+    return p;
+  };
+  const withLen = pts => {
+    const cum = [0];
+    for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+    return { pts, cum, len: cum[cum.length - 1] };
+  };
+  const push = (code, kind, extra = {}) => {
+    const s0 = { ...st };
+    if (extra.set) Object.assign(st, extra.set);
+    steps.push({ code, kind, s0, s1: { ...st }, ...extra });
+  };
+  const info = (code, dur, set) => push(code, 'info', { dur, set });
+  const zmove = (code, z, set = {}) => push(code, 'z', { dur: 380, set: { ...set, z } });
+  const move = (code, kind, pts, set = {}) => {
+    const g = withLen(pts);
+    const last = pts[pts.length - 1];
+    push(code, kind, { ...g, dur: Math.max(220, g.len / (kind === 'rapid' ? RAPID : FEED) * 1000), set: { ...set, x: last[0], y: last[1] } });
+  };
+  const to = (x, y) => lineP(st.x, st.y, x, y);
+  const drill = (code, x, y, set = {}) => {
+    const g = withLen(to(x, y));
+    const travel = Math.max(160, g.len / RAPID * 1000);
+    push(code, 'drill', { ...g, travel, dur: travel + 720, hole: [x, y], set: { ...set, x, y } });
+  };
+
+  info('%', 180);
+  info('O1090 (BRACKET DEMO · AL 7075-T6)', 380);
+  info('N10 G21 G90 G17 G40', 300);
+  info('N20 T1 M06 (Ø6 FLAT END MILL)', 480, { t: 'T1' });
+  info('N30 S9000 M03', 420, { s: 9000 });
+  move('N40 G00 X8. Y-8.', 'rapid', to(8, -8));
+  zmove('N50 G00 Z2.', 2);
+  zmove('N60 G01 Z-3. F300', -3, { f: 300 });
+  move('N70 G01 Y0. F900', 'cut', to(8, 0), { f: 900 });
+  move('N80 G01 X112.', 'cut', to(112, 0));
+  move('N90 G03 X120. Y8. I0. J8.', 'cut', arcP(112, 8, 8, -90, 0));
+  move('N100 G01 Y62.', 'cut', to(120, 62));
+  move('N110 G03 X112. Y70. I-8. J0.', 'cut', arcP(112, 62, 8, 0, 90));
+  move('N120 G01 X8.', 'cut', to(8, 70));
+  move('N130 G03 X0. Y62. I0. J-8.', 'cut', arcP(8, 62, 8, 90, 180));
+  move('N140 G01 Y8.', 'cut', to(0, 8));
+  move('N150 G03 X8. Y0. I8. J0.', 'cut', arcP(8, 8, 8, 180, 270));
+  zmove('N160 G00 Z5.', 5);
+  move('N170 G00 X40. Y25.', 'rapid', to(40, 25));
+  zmove('N180 G01 Z-2. F300', -2, { f: 300 });
+  move('N190 G01 X80. F900', 'cut', to(80, 25), { f: 900 });
+  move('N200 G03 X80. Y45. I0. J10.', 'cut', arcP(80, 35, 10, -90, 90));
+  move('N210 G01 X40.', 'cut', to(40, 45));
+  move('N220 G03 X40. Y25. I0. J-10.', 'cut', arcP(40, 35, 10, 90, 270));
+  zmove('N230 G00 Z25.', 25);
+  info('N240 T2 M06 (Ø6 DRILL)', 560, { t: 'T2' });
+  info('N250 S2400 M03', 380, { s: 2400 });
+  drill('N260 G81 X12. Y12. Z-8. R2. F200', 12, 12, { f: 200 });
+  drill('N270 X108. Y12.', 108, 12);
+  drill('N280 X108. Y58.', 108, 58);
+  drill('N290 X12. Y58.', 12, 58);
+  info('N300 G80', 240);
+  move('N310 G00 X-10. Y80.', 'rapid', to(-10, 80));
+  info('N320 M05', 300, { s: 0, f: 0 });
+  info('N330 M30', 480);
+  info('%', 200);
+
+  const cycleMs = steps.reduce((a, s) => a + s.dur, 0);
+
+  /* G-code list */
+  const list = document.getElementById('gcode');
+  const lis = steps.map(s => { const li = document.createElement('li'); li.textContent = s.code; list.appendChild(li); return li; });
+
+  /* ---------------- canvas ---------------- */
+  const cv = document.getElementById('cnc');
+  const ctx = cv.getContext('2d');
+  const W = { x0: -24, x1: 142, y0: -26, y1: 86 };
+  let C = {}, k = 1, ox = 0, oy = 0, dpr = 1, cw = 0, ch = 0;
+  const readColors = () => {
+    const cs = getComputedStyle(root);
+    ['sheet', 'ink', 'ink-2', 'line', 'dykem', 'dykem-soft', 'metal', 'metal-edge', 'grid', 'orange', 'teal', 'orange-soft'].forEach(n => C[n] = cs.getPropertyValue('--' + n).trim());
+    C.mono = cs.getPropertyValue('--f-mono').trim();
+  };
+  const fit = () => {
+    const r = cv.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    cw = Math.max(1, Math.round(r.width * dpr)); ch = Math.max(1, Math.round(r.height * dpr));
+    cv.width = cw; cv.height = ch;
+    k = Math.min(cw / (W.x1 - W.x0), ch / (W.y1 - W.y0));
+    ox = (cw - (W.x1 - W.x0) * k) / 2; oy = (ch - (W.y1 - W.y0) * k) / 2;
+  };
+  const X = x => ox + (x - W.x0) * k;
+  const Y = y => oy + (W.y1 - y) * k;
+
+  const posAt = (s, d) => {
+    const { pts, cum } = s;
+    if (d <= 0) return pts[0];
+    for (let i = 1; i < pts.length; i++) {
+      if (cum[i] >= d) { const t = (d - cum[i - 1]) / ((cum[i] - cum[i - 1]) || 1); return [pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * t, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * t]; }
+    }
+    return pts[pts.length - 1];
+  };
+  const strokePoly = (s, upto) => {
+    const { pts, cum } = s;
+    ctx.beginPath(); ctx.moveTo(X(pts[0][0]), Y(pts[0][1]));
+    for (let i = 1; i < pts.length; i++) {
+      if (cum[i] <= upto) ctx.lineTo(X(pts[i][0]), Y(pts[i][1]));
+      else { const p = posAt(s, upto); ctx.lineTo(X(p[0]), Y(p[1])); break; }
+    }
+    ctx.stroke();
+  };
+  const arrow = (x, y, ang) => {
+    const a = 7 * dpr;
+    ctx.beginPath(); ctx.moveTo(x, y);
+    ctx.lineTo(x - a * Math.cos(ang - .32), y - a * Math.sin(ang - .32));
+    ctx.lineTo(x - a * Math.cos(ang + .32), y - a * Math.sin(ang + .32));
+    ctx.closePath(); ctx.fill();
+  };
+  const drawDims = () => {
+    ctx.save();
+    ctx.strokeStyle = C['ink-2']; ctx.fillStyle = C['ink-2']; ctx.lineWidth = 1 * dpr;
+    ctx.font = `${11 * dpr}px ${C.mono}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    // horizontal 120
+    const yd = Y(-16);
+    ctx.beginPath(); ctx.moveTo(X(0), Y(-7)); ctx.lineTo(X(0), Y(-19)); ctx.moveTo(X(120), Y(-7)); ctx.lineTo(X(120), Y(-19));
+    ctx.moveTo(X(0), yd); ctx.lineTo(X(120), yd); ctx.stroke();
+    arrow(X(0), yd, Math.PI); arrow(X(120), yd, 0);
+    ctx.fillStyle = C.sheet; const tw = ctx.measureText('120').width + 10 * dpr; ctx.fillRect(X(60) - tw / 2, yd - 7 * dpr, tw, 14 * dpr);
+    ctx.fillStyle = C['ink-2']; ctx.fillText('120', X(60), yd);
+    // vertical 70
+    const xd = X(-16);
+    ctx.beginPath(); ctx.moveTo(X(-7), Y(0)); ctx.lineTo(X(-19), Y(0)); ctx.moveTo(X(-7), Y(70)); ctx.lineTo(X(-19), Y(70));
+    ctx.moveTo(xd, Y(0)); ctx.lineTo(xd, Y(70)); ctx.stroke();
+    arrow(xd, Y(70), -Math.PI / 2); arrow(xd, Y(0), Math.PI / 2);
+    ctx.save(); ctx.translate(xd, Y(35)); ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = C.sheet; const tv = ctx.measureText('70').width + 10 * dpr; ctx.fillRect(-tv / 2, -7 * dpr, tv, 14 * dpr);
+    ctx.fillStyle = C['ink-2']; ctx.fillText('70', 0, 0); ctx.restore();
+    // hole callout
+    ctx.beginPath(); ctx.moveTo(X(14), Y(60)); ctx.lineTo(X(24), Y(80)); ctx.lineTo(X(30), Y(80)); ctx.stroke();
+    ctx.textAlign = 'left'; ctx.fillText('4× Ø6 THRU', X(31), Y(80));
+    // slot callout
+    ctx.beginPath(); ctx.moveTo(X(88), Y(43)); ctx.lineTo(X(98), Y(80)); ctx.lineTo(X(104), Y(80)); ctx.stroke();
+    ctx.fillText('SLOT R10 ↓2', X(105), Y(80));
+    // centre marks
+    ctx.setLineDash([6 * dpr, 3 * dpr, 1.5 * dpr, 3 * dpr]); ctx.strokeStyle = C.line;
+    ctx.beginPath(); ctx.moveTo(X(-4), Y(35)); ctx.lineTo(X(124), Y(35)); ctx.moveTo(X(60), Y(-4)); ctx.lineTo(X(60), Y(74)); ctx.stroke();
+    ctx.restore();
+  };
+
+  let idx = 0, tIn = 0, hold = 0, elapsed = 0, finished = false;
+  const dro = { x: document.getElementById('dx'), y: document.getElementById('dy'), z: document.getElementById('dz'), f: document.getElementById('df'), s: document.getElementById('ds'), t: document.getElementById('dt') };
+  const statusEl = document.getElementById('status');
+
+  const render = () => {
+    ctx.fillStyle = C.sheet; ctx.fillRect(0, 0, cw, ch);
+    // 10 mm grid
+    ctx.strokeStyle = C.grid; ctx.lineWidth = 1;
+    ctx.beginPath();
+    for (let gx = -20; gx <= 140; gx += 10) { ctx.moveTo(X(gx), Y(W.y0)); ctx.lineTo(X(gx), Y(W.y1)); }
+    for (let gy = -20; gy <= 80; gy += 10) { ctx.moveTo(X(W.x0), Y(gy)); ctx.lineTo(X(W.x1), Y(gy)); }
+    ctx.stroke();
+    // stock
+    ctx.fillStyle = C.metal; ctx.strokeStyle = C['metal-edge']; ctx.lineWidth = 1.2 * dpr;
+    ctx.fillRect(X(-5), Y(75), 130 * k, 80 * k); ctx.strokeRect(X(-5), Y(75), 130 * k, 80 * k);
+    drawDims();
+
+    const toolW = 6 * k;
+    const doneHoles = [];
+    let cur = null, curD = 0, z = st.z;
+    // completed + current cuts
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    for (let i = 0; i < steps.length; i++) {
+      const s = steps[i];
+      const isDone = i < idx || finished;
+      const isCur = i === idx && !finished;
+      if (!isDone && !isCur) break;
+      const p = isDone ? 1 : Math.min(1, tIn / s.dur);
+      if (s.kind === 'cut') {
+        ctx.strokeStyle = C.ink; ctx.globalAlpha = .82; ctx.lineWidth = toolW;
+        strokePoly(s, s.len * p);
+        ctx.globalAlpha = 1; ctx.strokeStyle = C.dykem; ctx.lineWidth = 1 * dpr;
+        strokePoly(s, s.len * p);
+      }
+      if (s.kind === 'drill') {
+        if (isDone) doneHoles.push([s.hole, 1]);
+        else if (tIn > s.travel) doneHoles.push([s.hole, Math.min(1, (tIn - s.travel) / (s.dur - s.travel) * 1.8)]);
+      }
+      if (isCur) { cur = s; curD = p; }
+    }
+    // holes
+    for (const [h, q] of doneHoles) {
+      ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(X(h[0]), Y(h[1]), 3 * k * q, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = C.teal; ctx.lineWidth = 1 * dpr; ctx.beginPath(); ctx.arc(X(h[0]), Y(h[1]), 3 * k + 2 * dpr, 0, Math.PI * 2); ctx.globalAlpha = q * .7; ctx.stroke(); ctx.globalAlpha = 1;
+    }
+    // tool position
+    let tx = st.x, ty = st.y;
+    let tool = { ...(cur ? cur.s0 : steps[steps.length - 1].s1) };
+    if (cur) {
+      if (cur.pts) {
+        const travelP = cur.kind === 'drill' ? Math.min(1, tIn / cur.travel) : curD;
+        const p = posAt(cur, cur.len * travelP); tx = p[0]; ty = p[1];
+        if (cur.kind === 'rapid' || (cur.kind === 'drill' && travelP < 1)) {
+          ctx.save(); ctx.setLineDash([5 * dpr, 4 * dpr]); ctx.strokeStyle = C.dykem; ctx.lineWidth = 1.2 * dpr; ctx.lineCap = 'butt';
+          strokePoly(cur, cur.len * travelP); ctx.restore();
+        }
+        z = cur.s0.z;
+        if (cur.kind === 'drill' && tIn > cur.travel) {
+          const q = Math.min(1, (tIn - cur.travel) / (cur.dur - cur.travel));
+          z = 2 - 10 * Math.sin(q * Math.PI);
+        }
+      } else { tx = cur.s0.x; ty = cur.s0.y; z = cur.kind === 'z' ? cur.s0.z + (cur.s1.z - cur.s0.z) * curD : cur.s0.z; }
+      tool = { ...cur.s0, ...(curD > 0.02 ? cur.s1 : {}) };
+    } else { const e = steps[steps.length - 1].s1; tx = e.x; ty = e.y; z = e.z; }
+
+    const cx = X(tx), cy = Y(ty), r = 3 * k;
+    if (z < 0) { ctx.fillStyle = C['orange-soft']; ctx.beginPath(); ctx.arc(cx, cy, r + 6 * dpr, 0, Math.PI * 2); ctx.fill(); }
+    ctx.strokeStyle = C.orange; ctx.lineWidth = 1.6 * dpr; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+    ctx.lineWidth = 1 * dpr; ctx.beginPath();
+    ctx.moveTo(cx - r - 6 * dpr, cy); ctx.lineTo(cx + r + 6 * dpr, cy); ctx.moveTo(cx, cy - r - 6 * dpr); ctx.lineTo(cx, cy + r + 6 * dpr); ctx.stroke();
+    if (tool.s > 0 && !finished && !reduce) {
+      const a = performance.now() / 60;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + r * Math.cos(a), cy + r * Math.sin(a)); ctx.stroke();
+    }
+
+    dro.x.textContent = tx.toFixed(3); dro.y.textContent = ty.toFixed(3); dro.z.textContent = z.toFixed(3);
+    dro.f.textContent = tool.f; dro.s.textContent = tool.s; dro.t.textContent = tool.t;
+  };
+
+  let shownIdx = -1;
+  const showLine = i => {
+    if (i === shownIdx) return;
+    shownIdx = i;
+    lis.forEach((li, j) => { li.classList.toggle('on', j === i); li.classList.toggle('done', i >= 0 ? j < i : true); });
+    const li = lis[Math.max(0, Math.min(lis.length - 1, i < 0 ? lis.length - 1 : i))];
+    list.scrollTop = li.offsetTop - list.clientHeight / 2 + li.offsetHeight / 2;
+  };
+  const fmt = ms => { const s = ms / 1000; return `${String(Math.floor(s / 60)).padStart(2, '0')}:${(s % 60).toFixed(1).padStart(4, '0')}`; };
+
+  let last = 0, raf = 0, visible = true;
+  const tick = now => {
+    raf = 0;
+    const dt = Math.min(64, last ? now - last : 16); last = now;
+    if (!finished) {
+      tIn += dt; elapsed += dt;
+      while (idx < steps.length && tIn >= steps[idx].dur) { tIn -= steps[idx].dur; idx++; }
+      if (idx >= steps.length) { finished = true; hold = 0; statusEl.textContent = `Cycle complete · ${fmt(cycleMs)}`; statusEl.classList.add('done'); showLine(-1); }
+      else { statusEl.textContent = `Running · ${fmt(elapsed)}`; showLine(idx); }
+    } else {
+      hold += dt;
+      if (hold > 2800) { finished = false; idx = 0; tIn = 0; elapsed = 0; statusEl.classList.remove('done'); }
+    }
+    render();
+    if (visible && !document.hidden) raf = requestAnimationFrame(tick);
+  };
+  const start = () => { if (!raf && !reduce) { last = 0; raf = requestAnimationFrame(tick); } };
+
+  readColors(); fit();
+  if (reduce) {
+    finished = true; statusEl.textContent = `Cycle complete · ${fmt(cycleMs)}`; statusEl.classList.add('done');
+    showLine(-1); render();
+  } else { showLine(0); render(); start(); }
+
+  new ResizeObserver(() => { fit(); render(); }).observe(cv);
+  const retheme = () => { readColors(); render(); };
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', retheme);
+  new MutationObserver(retheme).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+  if (document.fonts) document.fonts.ready.then(() => render());
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) start(); }).observe(cv);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) start(); });
+
+  /* ---------------- counters ---------------- */
+  const counters = [...document.querySelectorAll('[data-count]')];
+  if (!reduce) {
+    const t0 = performance.now(), D = 1600;
+    const run = now => {
+      const p = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - p, 3);
+      counters.forEach(c => { c.textContent = Math.round(+c.dataset.count * e).toLocaleString('en-US'); });
+      if (p < 1) requestAnimationFrame(run);
+    };
+    requestAnimationFrame(run);
+  }
+
+  /* ---------------- reveal on scroll (only for things below the fold) ---------------- */
+  const rvs = [...document.querySelectorAll('.rv')];
+  if (!reduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.remove('wait'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px' });
+    rvs.forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight * 0.92) { el.classList.add('wait'); io.observe(el); }
+    });
+  }
+
+  /* ---------------- nav state + progress ---------------- */
+  const navLinks = [...document.querySelectorAll('.nav a')];
+  const progress = document.getElementById('progress');
+  const secs = navLinks.map(a => document.querySelector(a.getAttribute('href')));
+  const onScroll = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    progress.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+    let on = -1;
+    secs.forEach((s, i) => { if (s.getBoundingClientRect().top < innerHeight * 0.35) on = i; });
+    navLinks.forEach((a, i) => a.classList.toggle('on', i === on));
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* ---------------- timeline <-> job highlight ---------------- */
+  document.querySelectorAll('.seg').forEach(seg => {
+    const job = document.getElementById(seg.dataset.job);
+    const on = v => { seg.classList.toggle('hot', v); job.classList.toggle('hot', v); };
+    seg.addEventListener('mouseenter', () => on(true)); seg.addEventListener('mouseleave', () => on(false));
+    seg.addEventListener('focus', () => on(true)); seg.addEventListener('blur', () => on(false));
+    job.addEventListener('mouseenter', () => seg.classList.add('hot'));
+    job.addEventListener('mouseleave', () => seg.classList.remove('hot'));
+  });
+
+  /* ---------------- copy buttons ---------------- */
+  document.querySelectorAll('.copy').forEach(b => {
+    b.addEventListener('click', () => {
+      const done = () => { b.textContent = 'Copied'; b.classList.add('ok'); setTimeout(() => { b.textContent = 'Copy'; b.classList.remove('ok'); }, 1600); };
+      const fallback = () => {
+        const val = b.parentElement.querySelector('.val');
+        const r = document.createRange(); r.selectNodeContents(val);
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        b.textContent = 'Selected · press Ctrl+C';
+      };
+      try { navigator.clipboard.writeText(b.dataset.copy).then(done, fallback); } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>
+
+</html>

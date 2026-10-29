@@ -44,7 +44,7 @@ Dedicated to advancing manufacturing excellence and contributing to aerospace in
 | Aircraft | Boeing 737-800NG | A, B |
 | Parts fabricated | 1000+ | A |
 | CNC programs written | 100+ | A |
-| Quality inspections | 500+ | A |
+| Quality inspections | 250+ | A |
 
 ## Core strengths (B)
 1. **EASA Compliance:** strict adherence to aviation safety and airworthiness standards across every inspection.

@@ -16,6 +16,7 @@ Merged from:
 - **Email:** matasskirkevicius@gmail.com
 - **Phone:** +370 653 98316
 - **Address:** Ašigalio g. 17-2, Kaunas, Lithuania
+- **Website:** https://krutas.github.io/CV/
 - **TikTok:** @krutasltu (https://www.tiktok.com/@krutasltu)
 - **YouTube:** @KrutasLTU (https://www.youtube.com/@KrutasLTU)
 - **WhatsApp:** KrutasLTU (https://wa.me/37065398316, same number as phone)
